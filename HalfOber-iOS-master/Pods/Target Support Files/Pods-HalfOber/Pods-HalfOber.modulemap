@@ -1,0 +1,6 @@
+module Pods_HalfOber {
+  umbrella header "Pods-HalfOber-umbrella.h"
+
+  export *
+  module * { export * }
+}

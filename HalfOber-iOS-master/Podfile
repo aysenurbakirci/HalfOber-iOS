@@ -1,0 +1,5 @@
+target 'HalfOber' do
+	pod 'FontAwesome'
+	pod 'AlamofireObjectMapper'
+	pod 'Alamofire'
+end

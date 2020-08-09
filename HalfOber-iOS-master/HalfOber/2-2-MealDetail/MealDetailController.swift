@@ -46,6 +46,7 @@ class MealDetailController: UIViewController, UIPickerViewDelegate, UIPickerView
             let tbc = self.tabBarController as! TabBarController
             tbc.cartItemCount += Int(orderCount.text!)!
             tbc.cartItemList.add(cartItem)
+            tbc.totalPrice += Double(orderCount.text!)! * mealPrice
             self.tabBarController?.tabBar.items?[1].badgeValue = "\(tbc.cartItemCount)"
             self.navigationController?.popViewController(animated: true)
             //add item to cart

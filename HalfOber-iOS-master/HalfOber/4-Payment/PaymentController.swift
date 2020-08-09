@@ -15,7 +15,6 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var paymentMethod: UITextField!
     @IBOutlet weak var paymentButton: UIButton!
     
-    var total = 0.0
     let thePicker = UIPickerView()
     let myPickerData = [String](arrayLiteral: "Credit Card", "Cash", "Mobile")
     
@@ -27,8 +26,9 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else{
             paymentButton.isEnabled = false
         }
+        let tbc = self.tabBarController as! TabBarController
+        totalPrice.text = "\(tbc.totalPrice)"
         
-        total = 0.0
     }
     
     override func viewDidLoad() {
@@ -79,8 +79,6 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             thisCell.mealName.text = mealName!
             thisCell.orderPrice.text = "\(mealPrice! * Double(cartItemCount!))"
             
-            total += Double(thisCell.orderPrice.text!)!
-            totalPrice.text = "\(total)"
         }
         return thisCell
     }
@@ -131,5 +129,6 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             
         }
     }
+    
     
 }

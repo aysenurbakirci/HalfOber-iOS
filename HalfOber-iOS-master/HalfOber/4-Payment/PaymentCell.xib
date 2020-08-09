@@ -29,14 +29,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOD-YD-kSE">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kuW-hA-2PK" firstAttribute="leading" secondItem="AQu-I8-6lr" secondAttribute="trailing" constant="164.5" id="2er-66-bTM"/>
                     <constraint firstItem="kuW-hA-2PK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="38e-ns-nSj"/>
                     <constraint firstAttribute="bottom" secondItem="kuW-hA-2PK" secondAttribute="bottom" constant="12" id="5p3-4d-wqX"/>
+                    <constraint firstItem="lOD-YD-kSE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6KQ-s3-YYq"/>
                     <constraint firstItem="AQu-I8-6lr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="9GQ-tj-rsK"/>
+                    <constraint firstItem="lOD-YD-kSE" firstAttribute="top" secondItem="kuW-hA-2PK" secondAttribute="bottom" constant="11" id="DPa-hK-S9F"/>
+                    <constraint firstAttribute="trailing" secondItem="lOD-YD-kSE" secondAttribute="trailing" id="GPd-dF-v3l"/>
                     <constraint firstItem="AQu-I8-6lr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="IWc-Xn-Oya"/>
                     <constraint firstAttribute="trailing" secondItem="kuW-hA-2PK" secondAttribute="trailing" constant="12" id="JUB-W7-Twp"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="lOD-YD-kSE" secondAttribute="bottom" constant="-11" id="Lcb-Ey-seN"/>
                     <constraint firstAttribute="bottom" secondItem="AQu-I8-6lr" secondAttribute="bottom" constant="12" id="M9y-Nr-g60"/>
                 </constraints>
             </tableViewCellContentView>

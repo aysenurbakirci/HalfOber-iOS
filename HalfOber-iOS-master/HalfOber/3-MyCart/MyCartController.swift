@@ -124,6 +124,6 @@ class MyCartController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         self.tabBarController?.tabBar.items?[1].badgeValue = nil
         
-        //self.tabBarController?.selectedIndex = 2
+        self.tabBarController?.selectedIndex = 2
     }
 }

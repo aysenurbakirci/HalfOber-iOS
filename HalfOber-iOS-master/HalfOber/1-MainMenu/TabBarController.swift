@@ -57,5 +57,4 @@ class TabBarController: UITabBarController {
         
         return image
     }
-    
 }

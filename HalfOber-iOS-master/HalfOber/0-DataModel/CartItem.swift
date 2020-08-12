@@ -13,4 +13,5 @@ class CartItem: NSObject {
     var mealName: String?
     var mealPrice : Double?
     var cartItemCount: Int?
+    var mealNote : String?
 }

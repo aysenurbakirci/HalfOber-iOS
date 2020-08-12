@@ -115,15 +115,22 @@ class MyCartController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBAction func ConfirmCart(_ sender: Any) {
         
         let tbc = self.tabBarController as! TabBarController
-        for item in tbc.cartItemList {
-            tbc.paymentList.add(item)
+        
+        if tbc.paymentList.count > 0{
+            let alert = UIAlertController(title: "Error", message: "You must make the payment on the payment page.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }else{
+            for item in tbc.cartItemList {
+                tbc.paymentList.add(item)
+            }
+            tbc.cartItemList.removeAllObjects()
+            tableView.reloadData()
+            tbc.cartItemCount = 0
+            
+            self.tabBarController?.tabBar.items?[1].badgeValue = nil
+            self.tabBarController?.selectedIndex = 2
         }
-        tbc.cartItemList.removeAllObjects()
-        tableView.reloadData()
-        tbc.cartItemCount = 0
-        
-        self.tabBarController?.tabBar.items?[1].badgeValue = nil
-        
-        self.tabBarController?.selectedIndex = 2
     }
 }

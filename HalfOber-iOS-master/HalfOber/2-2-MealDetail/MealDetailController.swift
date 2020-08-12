@@ -41,6 +41,7 @@ class MealDetailController: UIViewController, UIPickerViewDelegate, UIPickerView
             cartItem.mealId = mealId
             cartItem.mealName = mealName
             cartItem.mealPrice = mealPrice
+            cartItem.mealNote = orderNote.text
             cartItem.cartItemCount = Int(orderCount.text!)
             
             let tbc = self.tabBarController as! TabBarController

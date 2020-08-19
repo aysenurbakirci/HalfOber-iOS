@@ -3,31 +3,27 @@ PODS:
   - AlamofireObjectMapper (6.2.0):
     - Alamofire (= 5.0.0-rc.2)
     - ObjectMapper (~> 3.5.1)
-  - AnimatedTabBar (0.1.7)
   - FontAwesome (4.5.0)
   - ObjectMapper (3.5.3)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
-  - AnimatedTabBar
   - FontAwesome
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireObjectMapper
-    - AnimatedTabBar
     - FontAwesome
     - ObjectMapper
 
 SPEC CHECKSUMS:
   Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
   AlamofireObjectMapper: 74d1440c92c42bbcc2b5f4dc81654ac095ec669f
-  AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
   FontAwesome: dd8c48bf965e771309d8af17c4d8579217b3e756
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
 
-PODFILE CHECKSUM: 6fec6a4229600f95b57e5dc6734b44dc8abfddeb
+PODFILE CHECKSUM: 3ae724e19bb5a95c5fadcb1c939a0089b4e1de54
 
 COCOAPODS: 1.10.0.beta.2

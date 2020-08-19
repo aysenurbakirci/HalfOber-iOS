@@ -22,12 +22,15 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         super.viewWillAppear(animated)
         tableView.reloadData()
         if((self.tabBarController as! TabBarController).paymentList.count > 0){
+            
             paymentButton.isEnabled = true
+            
+            let tbc = self.tabBarController as! TabBarController
+            totalPrice.text = "\(tbc.totalPrice)"
+            
         } else{
             paymentButton.isEnabled = false
         }
-        let tbc = self.tabBarController as! TabBarController
-        totalPrice.text = "\(tbc.totalPrice)"
         
     }
     
@@ -129,6 +132,4 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             
         }
     }
-    
-    
 }

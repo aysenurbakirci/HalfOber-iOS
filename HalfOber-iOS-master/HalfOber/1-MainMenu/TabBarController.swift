@@ -22,12 +22,12 @@ class TabBarController: UITabBarController {
         
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: selectedTitleColor], for: .selected)
         
-        let imageMenu = ConvertFAToImage(fromChar:"\u{f022}", color: UIColor.black, size: 26.0)
+        let imageMenu = ConvertFAToImage(fromChar:"\u{f022}", color: UIColor.red, size: 26.0)
         self.tabBar.items![0].image = imageMenu
-        let imageCart = ConvertFAToImage(fromChar:"\u{f291}", color: UIColor.black, size: 26.0)
+        let imageCart = ConvertFAToImage(fromChar:"\u{f291}", color: UIColor.red, size: 26.0)
         self.tabBar.items![1].image = imageCart
         //self.tabBar.items![1].badgeValue = "5"
-        let imagePayment = ConvertFAToImage(fromChar:"\u{f09d}", color: UIColor.black, size: 26.0)
+        let imagePayment = ConvertFAToImage(fromChar:"\u{f09d}", color: UIColor.red, size: 26.0)
         self.tabBar.items![2].image = imagePayment
         
         //self.selectedIndex = 2

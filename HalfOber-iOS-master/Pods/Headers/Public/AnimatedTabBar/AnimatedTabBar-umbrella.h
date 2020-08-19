@@ -1,0 +1,1 @@
+../../../Target Support Files/AnimatedTabBar/AnimatedTabBar-umbrella.h

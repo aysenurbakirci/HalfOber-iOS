@@ -76,7 +76,7 @@ class MealListController: UIViewController , UITableViewDelegate, UITableViewDat
         if let meal = mealList[indexPath.row] as? Meal{
             let mealName = meal.mealName
             let mealDescription = meal.mealDescription
-            let mealCalory = meal.mealCalory
+            //let mealCalory = meal.mealCalory
             let mealPrice = meal.mealPrice
             thisCell.mealName.text = mealName!
             thisCell.mealDescription.text = mealDescription!

@@ -59,31 +59,52 @@ class TabBarController: UITabBarController{
         return image
     }
 }
-
-extension TabBarController: UITabBarControllerDelegate {
-
-    func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return TabBarAnimatedTransitioning()
+extension TabBarController: UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let tabViewControllers = tabBarController.viewControllers, let toIndex = tabViewControllers.firstIndex(of: viewController) else {
+            return false
+        }
+        animateToTab(toIndex: toIndex)
+        return true
     }
 
-}
-final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
+    func animateToTab(toIndex: Int) {
+        guard let tabViewControllers = viewControllers,
+            let selectedVC = selectedViewController else { return }
 
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let destination = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
+        guard let fromView = selectedVC.view,
+            let toView = tabViewControllers[toIndex].view,
+            let fromIndex = tabViewControllers.firstIndex(of: selectedVC),
+            fromIndex != toIndex else { return }
 
-        destination.alpha = 0.0
-        destination.transform = .init(scaleX: 1.5, y: 1.5)
-        transitionContext.containerView.addSubview(destination)
 
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            destination.alpha = 1.0
-            destination.transform = .identity
-        }, completion: { transitionContext.completeTransition($0) })
+        // Add the toView to the tab bar view
+        fromView.superview?.addSubview(toView)
+
+        // Position toView off screen (to the left/right of fromView)
+        let screenWidth = UIScreen.main.bounds.size.width
+        let scrollRight = toIndex > fromIndex
+        let offset = (scrollRight ? screenWidth : -screenWidth)
+        toView.center = CGPoint(x: fromView.center.x + offset, y: toView.center.y)
+
+        // Disable interaction during animation
+        view.isUserInteractionEnabled = false
+
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 0,
+                       options: .curveEaseOut,
+                       animations: {
+                        // Slide the views by -offset
+                        fromView.center = CGPoint(x: fromView.center.x - offset, y: fromView.center.y)
+                        toView.center = CGPoint(x: toView.center.x - offset, y: toView.center.y)
+
+        }, completion: { finished in
+            // Remove the old view from the tabbar view.
+            fromView.removeFromSuperview()
+            self.selectedIndex = toIndex
+            self.view.isUserInteractionEnabled = true
+        })
     }
-
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.18
-    }
-
 }

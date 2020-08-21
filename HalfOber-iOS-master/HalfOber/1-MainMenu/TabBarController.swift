@@ -39,20 +39,15 @@ class TabBarController: UITabBarController{
     func ConvertFAToImage(fromChar char: String,
                              color: UIColor,
                              size: CGFloat) -> UIImage {
-        // 1.
         let label = UILabel(frame: .zero)
         label.textColor = color
         label.font = UIFont(name: "FontAwesome", size: size)
         label.text = char
-        // 2.
         label.sizeToFit()
         
-        // 3.
         let renderer = UIGraphicsImageRenderer(size: label.frame.size)
         
-        // 4.
         let image = renderer.image(actions: { context in
-            // 5.
             label.layer.render(in: context.cgContext)
         })
         
@@ -90,7 +85,7 @@ extension TabBarController: UITabBarControllerDelegate{
         // Disable interaction during animation
         view.isUserInteractionEnabled = false
 
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 0.5,
                        delay: 0.0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 0,

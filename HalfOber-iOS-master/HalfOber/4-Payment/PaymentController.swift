@@ -8,15 +8,11 @@
 
 import UIKit
 
-class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPrice: UILabel!
-    @IBOutlet weak var paymentMethod: UITextField!
     @IBOutlet weak var paymentButton: UIButton!
-    
-    let thePicker = UIPickerView()
-    let myPickerData = [String](arrayLiteral: "Credit Card", "Cash", "Mobile")
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,8 +33,6 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        thePicker.delegate = self
-        paymentMethod.inputView = thePicker
         tableView.separatorColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -49,22 +43,6 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         // Do any additional setup after loading the view.
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return myPickerData.count
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-     return "\(myPickerData[row])"
-    }
-
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        paymentMethod.text = "\(myPickerData[row])"
-        self.view.endEditing(true)
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.tabBarController as! TabBarController).paymentList.count
     }
@@ -109,27 +87,21 @@ class PaymentController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func PaymentButtonClick(_ sender: Any) {
-        
-        if paymentMethod.text == "Mobile"{
-            let alert = UIAlertController(title: "Payment", message: "Mobile Payment", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-        }else if paymentMethod.text == "Credit Card"{
-            let alert = UIAlertController(title: "Payment", message: "Credit Card Payment", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-        }else if paymentMethod.text == "Cash"{
-            let alert = UIAlertController(title: "Payment", message: "Cash Payment", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-        }else{
-            let alert = UIAlertController(title: "Error", message: "Payment Error", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-        }
+        let alert = UIAlertController(title: "Payment", message: "Please select your payment method", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Cash Payment", style: .default, handler: CashPayment))
+        alert.addAction(UIAlertAction(title: "Credit Card Payment", style: .default, handler: CreditCardPayment))
+        alert.addAction(UIAlertAction(title: "Mobile Payment", style: .default, handler: MobilePayment))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func CashPayment(alert: UIAlertAction!){
+        print("Cash")
+    }
+    func CreditCardPayment(alert: UIAlertAction!){
+        print("Credit Card")
+    }
+    func MobilePayment(alert: UIAlertAction!){
+        print("Mobile")
     }
 }

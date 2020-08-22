@@ -22,7 +22,7 @@ class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataS
             paymentButton.isEnabled = true
             
             let tbc = self.tabBarController as! TabBarController
-            totalPrice.text = "\(tbc.totalPrice)"
+            totalPrice.text = "\(tbc.totalOrderPrice)"
             
         } else{
             paymentButton.isEnabled = false
@@ -38,7 +38,6 @@ class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView(frame: .zero)
-
        // UserDefaults.standard.set(((self.tabBarController as! TabBarController).paymentList), forKey: "paymentList")
         // Do any additional setup after loading the view.
     }
@@ -96,12 +95,19 @@ class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func CashPayment(alert: UIAlertAction!){
-        print("Cash")
+        removeLists()
     }
     func CreditCardPayment(alert: UIAlertAction!){
-        print("Credit Card")
+        removeLists()
     }
     func MobilePayment(alert: UIAlertAction!){
-        print("Mobile")
+        removeLists()
+    }
+    func removeLists(){
+        let tbc = self.tabBarController as! TabBarController
+        tbc.paymentList.removeAllObjects()
+        tableView.reloadData()
+        tbc.totalOrderPrice = 0.0
+        totalPrice.text = "00.00"
     }
 }

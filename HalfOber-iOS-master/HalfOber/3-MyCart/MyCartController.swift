@@ -114,31 +114,37 @@ class MyCartController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBAction func ConfirmCart(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Confirmation", message: "Do you approve your cart?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: PaymentButtonClick))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func PaymentButtonClick(alert: UIAlertAction!){
         let tbc = self.tabBarController as! TabBarController
         
         if tbc.paymentList.count > 0{
+            
             let alert = UIAlertController(title: "Error", message: "You must make the payment on the payment page.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
         }else{
-            for item in tbc.cartItemList {
-                tbc.paymentList.add(item)
-            }
-            tbc.cartItemList.removeAllObjects()
-            tableView.reloadData()
-            tbc.cartItemCount = 0
+            let alert = UIAlertController(title: "Confirmation", message: "Do you approve your cart?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: PaymentButtonClick))
+            alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
             
-            self.tabBarController?.tabBar.items?[1].badgeValue = nil
-            self.tabBarController?.selectedIndex = 2
+            self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func PaymentButtonClick(alert: UIAlertAction!){
+        let tbc = self.tabBarController as! TabBarController
+        for item in tbc.cartItemList {
+            tbc.paymentList.add(item)
+        }
+        tbc.cartItemList.removeAllObjects()
+        tableView.reloadData()
+        tbc.cartItemCount = 0
+
+        self.tabBarController?.tabBar.items?[1].badgeValue = nil
+        self.tabBarController?.selectedIndex = 2
+    }
 }
+
+
+
+

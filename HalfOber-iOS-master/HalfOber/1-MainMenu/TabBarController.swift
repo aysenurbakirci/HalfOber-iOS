@@ -15,7 +15,7 @@ class TabBarController: UITabBarController{
     var cartItemCount = 0
     var cartItemList : NSMutableArray = []
     var paymentList : NSMutableArray = []
-    var totalPrice = 0.0
+    var totalOrderPrice = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()

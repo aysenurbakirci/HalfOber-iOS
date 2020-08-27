@@ -95,19 +95,81 @@ class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func CashPayment(alert: UIAlertAction!){
-        removeLists()
+        PaymentSuccessful()
     }
+    
     func CreditCardPayment(alert: UIAlertAction!){
-        removeLists()
+        PaymentFailed()
     }
+    
     func MobilePayment(alert: UIAlertAction!){
-        removeLists()
+        PaymentSuccessful()
     }
-    func removeLists(){
+    
+    func PaymentSuccessful(){
+        
         let tbc = self.tabBarController as! TabBarController
         tbc.paymentList.removeAllObjects()
         tableView.reloadData()
         tbc.totalOrderPrice = 0.0
         totalPrice.text = "00.00"
+        paymentButton.isEnabled = false
+        
+        let alert = UIAlertController(title: "Payment Successful", message: "Your payment request has been sent.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+        subview.layer.cornerRadius = 1
+        subview.backgroundColor = UIColor(red: (70/255.0), green: (170/255.0), blue: (20/255.0), alpha: 1.0)
+        alert.setTitleColor(color: UIColor.white)
+        alert.setMessageColor(color: UIColor.white)
+        alert.setButtonColor(color: UIColor.white)
+        
+
+    }
+    
+    func PaymentFailed(){
+        let alert = UIAlertController(title: "Payment Fail", message: "Your payment request could not be sent. Please try again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+        subview.layer.cornerRadius = 1
+        subview.backgroundColor = UIColor(red: (200/255.0), green: (20/255.0), blue: (10/255.0), alpha: 1.0)
+        alert.setTitleColor(color: UIColor.white)
+        alert.setMessageColor(color: UIColor.white)
+        alert.setButtonColor(color: UIColor.white)
+        
+    }
+}
+
+extension UIAlertController {
+
+    func setTitleColor(color: UIColor?) {
+        guard let title = self.title else { return }
+        let attributeString = NSMutableAttributedString(string: title)//1
+        
+        if let titleColor = color {
+            attributeString.addAttributes([NSAttributedString.Key.foregroundColor : titleColor],//3
+                                          range: NSMakeRange(0, title.utf8.count))
+        }
+        self.setValue(attributeString, forKey: "attributedTitle")//4
+    }
+    
+    func setMessageColor(color: UIColor?) {
+        guard let message = self.message else { return }
+        let attributeString = NSMutableAttributedString(string: message)
+
+        
+        if let messageColorColor = color {
+            attributeString.addAttributes([NSAttributedString.Key.foregroundColor : messageColorColor],
+                                          range: NSMakeRange(0, message.utf8.count))
+        }
+        self.setValue(attributeString, forKey: "attributedMessage")
+    }
+    
+    func setButtonColor(color: UIColor) {
+        self.view.tintColor = color
     }
 }

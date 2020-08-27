@@ -489,7 +489,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwA-Xo-eJX">
-                                                <rect key="frame" x="465" y="5" width="34" height="19.5"/>
+                                                <rect key="frame" x="443" y="5" width="34" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -505,7 +505,7 @@
                                         <constraints>
                                             <constraint firstItem="iwA-Xo-eJX" firstAttribute="top" secondItem="nJM-Nc-46S" secondAttribute="top" constant="5" id="2uy-g4-d7a"/>
                                             <constraint firstItem="vHc-Ie-uj4" firstAttribute="leading" secondItem="nJM-Nc-46S" secondAttribute="leading" constant="16" id="8Ag-bp-0dW"/>
-                                            <constraint firstItem="bkM-gQ-Nze" firstAttribute="leading" secondItem="iwA-Xo-eJX" secondAttribute="trailing" constant="48" id="CFs-Mi-7Tp"/>
+                                            <constraint firstItem="bkM-gQ-Nze" firstAttribute="leading" secondItem="iwA-Xo-eJX" secondAttribute="trailing" constant="70" id="CFs-Mi-7Tp"/>
                                             <constraint firstAttribute="bottom" secondItem="bkM-gQ-Nze" secondAttribute="bottom" constant="5" id="Fxz-nu-x3y"/>
                                             <constraint firstAttribute="trailing" secondItem="bkM-gQ-Nze" secondAttribute="trailing" constant="10" id="IKd-eM-2ME"/>
                                             <constraint firstAttribute="bottom" secondItem="iwA-Xo-eJX" secondAttribute="bottom" constant="5" id="VXk-sf-85W"/>

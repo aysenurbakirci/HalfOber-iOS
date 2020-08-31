@@ -11,6 +11,8 @@
 		2492B18E24D9375500D15524 /* MyCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2492B18C24D9375500D15524 /* MyCartCell.xib */; };
 		2492B19124DAC5A200D15524 /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2492B18F24DAC5A200D15524 /* PaymentCell.swift */; };
 		2492B19224DAC5A200D15524 /* PaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2492B19024DAC5A200D15524 /* PaymentCell.xib */; };
+		24E1F9A724FD718E003395E4 /* CreditCardInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1F9A624FD718E003395E4 /* CreditCardInformation.swift */; };
+		24E1F9AD24FD746E003395E4 /* CreditCartPaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1F9AC24FD746E003395E4 /* CreditCartPaymentController.swift */; };
 		3DB7B99E68FA9F1244F6CF9F /* libPods-HalfOber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8576DB529BFF3F7BF0794B5 /* libPods-HalfOber.a */; };
 		AFABF08524A0DE73008D2666 /* MealListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABF08424A0DE73008D2666 /* MealListController.swift */; };
 		AFABF08B24A0DF17008D2666 /* MyCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABF08A24A0DF17008D2666 /* MyCartController.swift */; };
@@ -41,6 +43,8 @@
 		2492B18C24D9375500D15524 /* MyCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartCell.xib; sourceTree = "<group>"; };
 		2492B18F24DAC5A200D15524 /* PaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
 		2492B19024DAC5A200D15524 /* PaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCell.xib; sourceTree = "<group>"; };
+		24E1F9A624FD718E003395E4 /* CreditCardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInformation.swift; sourceTree = "<group>"; };
+		24E1F9AC24FD746E003395E4 /* CreditCartPaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCartPaymentController.swift; sourceTree = "<group>"; };
 		AFABF08424A0DE73008D2666 /* MealListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListController.swift; sourceTree = "<group>"; };
 		AFABF08A24A0DF17008D2666 /* MyCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartController.swift; sourceTree = "<group>"; };
 		AFABF08C24A0DF23008D2666 /* PaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				AFABF08C24A0DF23008D2666 /* PaymentController.swift */,
 				2492B18F24DAC5A200D15524 /* PaymentCell.swift */,
 				2492B19024DAC5A200D15524 /* PaymentCell.xib */,
+				24E1F9AC24FD746E003395E4 /* CreditCartPaymentController.swift */,
 			);
 			path = "4-Payment";
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				AFABF0AD24B6F22A008D2666 /* MealCategory.swift */,
 				AFABF0AF24B6F25C008D2666 /* Meal.swift */,
 				AFABF0B124C9B275008D2666 /* CartItem.swift */,
+				24E1F9A624FD718E003395E4 /* CreditCardInformation.swift */,
 			);
 			path = "0-DataModel";
 			sourceTree = "<group>";
@@ -344,11 +350,13 @@
 				AFEB1D4A249FA95000D3B1ED /* AppDelegate.swift in Sources */,
 				AFEB1D4C249FA95000D3B1ED /* SceneDelegate.swift in Sources */,
 				AFEB1D66249FB20700D3B1ED /* MealCategoryListController.swift in Sources */,
+				24E1F9AD24FD746E003395E4 /* CreditCartPaymentController.swift in Sources */,
 				AFABF0B024B6F25C008D2666 /* Meal.swift in Sources */,
 				AFEB1D64249FAAC600D3B1ED /* MainMenuController.swift in Sources */,
 				AFABF0AE24B6F22A008D2666 /* MealCategory.swift in Sources */,
 				AFEB1D6C24A0D98500D3B1ED /* MealCategoryCell.swift in Sources */,
 				AFABF09324A36D0A008D2666 /* MealDetailController.swift in Sources */,
+				24E1F9A724FD718E003395E4 /* CreditCardInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -103,7 +103,7 @@ class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func MobilePayment(alert: UIAlertAction!){
-        PaymentSuccessful()
+        performSegue(withIdentifier: "CreditCartPaymentScreenSegue", sender: nil)
     }
     
     func PaymentSuccessful(){
@@ -125,7 +125,6 @@ class PaymentController: UIViewController, UITableViewDelegate, UITableViewDataS
         alert.setTitleColor(color: UIColor.white)
         alert.setMessageColor(color: UIColor.white)
         alert.setButtonColor(color: UIColor.white)
-        
 
     }
     
